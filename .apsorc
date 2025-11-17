@@ -1,0 +1,114 @@
+{
+  "entities": [
+    {
+      "name": "Project",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "name"
+          ],
+          "unique": false
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "status",
+          "type": "varchar",
+          "nullable": false,
+          "default": "pending",
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "title"
+          ],
+          "unique": false
+        }
+      ]
+    },
+    {
+      "name": "Comment",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Assignment",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [],
+      "indexes": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Project",
+      "to": "Task",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Task",
+      "to": "Comment",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Task",
+      "to": "Assignment",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
