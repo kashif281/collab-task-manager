@@ -6,7 +6,7 @@ const defaultConfig = {
     APP_PORT: 3200,
     APP_SITE: 'http://localhost',
     APP_NAME: 'Apso Template',
-    ALLOWED_ORIGINS: 'locahost',
+    ALLOWED_ORIGINS: 'locahost,app.staging.apso.cloud',
     COOKIE_HTTP_ONLY: true,
     COOKIE_PATH: '/auth/refresh_token',
     COOKIE_DOMAIN: 'http://localhost:3001',
