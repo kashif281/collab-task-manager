@@ -15,6 +15,17 @@ const handler = async (event, context) => {
             app: nestApp.getHttpAdapter().getInstance(),
         });
     }
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+            },
+            body: '',
+        };
+    }
     return cachedServer(event, context);
 };
 exports.handler = handler;
